@@ -23,7 +23,7 @@ export default function Header() {
               <AvatarImage src={session.user.image} alt={session.user.name || session.user.email} />
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center">
-              <button onClick={signOut}>
+              <button className="text-gray-200 focus:outline-none" onClick={signOut}>
                 <CloseIcon />
               </button>
             </div>
