@@ -1,4 +1,4 @@
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/client'
 
 import Loader from '../components/Loader'
 import LoginButtons from '../components/LoginButtons'
@@ -12,7 +12,8 @@ export default function Home() {
 
   return (
     <div>
-      <h1 className="text-5xl text-center text-gray-700 dark:text-gray-100">Performance</h1>
+      <h2 className="text-3xl text-center text-gray-700 dark:text-gray-100">Performance</h2>
+      <h2 className="text-3xl text-center text-gray-700 dark:text-gray-100">My Holdings</h2>
     </div>
   )
 }
