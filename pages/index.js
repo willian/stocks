@@ -12,8 +12,12 @@ export default function Home() {
 
   return (
     <div>
-      <h2 className="text-3xl text-center text-gray-700 dark:text-gray-100">Performance</h2>
-      <h2 className="text-3xl text-center text-gray-700 dark:text-gray-100">My Holdings</h2>
+      <h2 className="text-sm font-semibold text-center text-gray-400 uppercase dark:text-purple-300">
+        Performance
+      </h2>
+      <h2 className="text-sm font-semibold text-center text-gray-400 uppercase dark:text-purple-300">
+        My Holdings
+      </h2>
     </div>
   )
 }
