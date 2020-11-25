@@ -1,7 +1,8 @@
 import Link from 'next/link'
-import { useSession } from 'next-auth/client'
+import { signOut, useSession } from 'next-auth/client'
 
 import AvatarImage from './AvatarImage'
+import CloseIcon from './icons/CloseIcon'
 
 export default function Header() {
   const [session, loading] = useSession()
@@ -14,9 +15,16 @@ export default function Header() {
         </Link>
 
         {!loading && session && (
-          <div className="absolute inset-y-0 right-0 flex items-center">
-            <AvatarImage src={session.user.image} alt={session.user.name || session.user.email} />
-          </div>
+          <>
+            <div className="absolute inset-y-0 flex items-center right-9">
+              <AvatarImage src={session.user.image} alt={session.user.name || session.user.email} />
+            </div>
+            <div className="absolute inset-y-0 right-0 flex items-center">
+              <button onClick={signOut}>
+                <CloseIcon />
+              </button>
+            </div>
+          </>
         )}
       </div>
     </header>
