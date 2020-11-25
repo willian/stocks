@@ -139,6 +139,7 @@ function MyApp({ Component, pageProps }) {
         <link
           rel="apple-touch-startup-image"
           href="/apple-splash-640-1136.jpg"
+          gg
           media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
         />
         <link
@@ -156,7 +157,10 @@ function MyApp({ Component, pageProps }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </Head>
 
-      <div className="flex flex-col min-h-screen font-sans text-base antialiased select-none bg-cool-gray-200">
+      <div
+        className="flex flex-col min-h-screen font-sans text-base antialiased select-none bg-cool-gray-200"
+        style={{ WebkitTapHighlightColor: 'transparent' }}
+      >
         <div className="box-border relative flex flex-col flex-1 text-gray-800 bg-gray-50 dark:bg-gray-800 dark:text-gray-200">
           <Header />
 
