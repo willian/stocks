@@ -1,6 +1,6 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 /* html,
 body {
@@ -14,5 +14,9 @@ body {
 @media screen and (display-mode: standalone) {
   header {
     height: 88px !important;
+  }
+
+  main {
+    padding-top: 88px !important;
   }
 }

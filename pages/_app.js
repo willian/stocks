@@ -1,11 +1,13 @@
 import Head from 'next/head'
-import Link from 'next/link'
+import { Provider } from 'next-auth/client'
 
 import '../styles.css'
 
+import Header from '../components/Header'
+
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <Provider options={{ site: process.env.SITE }} session={pageProps.session}>
       <Head>
         <title>Stocks</title>
         <link rel="manifest" href="/site.webmanifest" />
@@ -155,25 +157,17 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <div className="flex flex-col min-h-screen font-sans text-base antialiased select-none bg-cool-gray-200">
-        <div className="box-border relative flex flex-col flex-1 w-full mx-auto text-gray-800 bg-gray-50 dark:bg-gray-900">
-          <header className="box-border fixed z-10 flex items-end w-full shadow-sm bg-gradient-to-r from-purple-900 to-purple-600 h-11">
-            <div
-              className="relative flex justify-center flex-1 pt-3 mx-4"
-              style={{ paddingBottom: 14 }}
-            >
-              <Link href="/">
-                <a className="text-lg font-semibold leading-none text-white">Stocks</a>
-              </Link>
+        <div className="box-border relative flex flex-col flex-1 w-full mx-auto text-gray-800 bg-gray-50 dark:bg-gray-900 dark:text-gray-200">
+          <Header />
 
-              <div className="absolute inset-y-0 right-0 flex items-center">WF</div>
+          <main className="pt-11">
+            <div className="p-2 pt-4">
+              <Component {...pageProps} />
             </div>
-          </header>
-          <main>
-            <Component {...pageProps} />
           </main>
         </div>
       </div>
-    </>
+    </Provider>
   )
 }
 
