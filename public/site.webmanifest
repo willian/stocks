@@ -1,6 +1,6 @@
 {
   "display": "standalone",
-  "short_name": "Mechanism Stocks",
+  "short_name": "MStocks",
   "icons": [
     {
       "src": "manifest-icon-192.png",

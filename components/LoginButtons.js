@@ -56,11 +56,11 @@ function Twitter(props) {
 
 export default function LoginButtons() {
   return (
-    <div className="max-w-md mx-auto">
+    <div className="max-w-md p-2 mx-auto">
       <h1 className="text-5xl text-center text-gray-700 dark:text-gray-100">Sign in</h1>
 
       <Button className="mt-8 " onClick={() => signIn('github')}>
-        Sign in with Git Hub <GitHub className="w-6 h-6 ml-2" />
+        Sign in with GitHub <GitHub className="w-6 h-6 ml-2" />
       </Button>
 
       <Button className="mt-4 " onClick={() => signIn('twitter')}>

@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider options={{ site: process.env.SITE }} session={pageProps.session}>
       <Head>
-        <title>Stocks</title>
+        <title>MStocks</title>
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
@@ -157,11 +157,11 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <div className="flex flex-col min-h-screen font-sans text-base antialiased select-none bg-cool-gray-200">
-        <div className="box-border relative flex flex-col flex-1 w-full mx-auto text-gray-800 bg-gray-50 dark:bg-gray-900 dark:text-gray-200">
+        <div className="box-border relative flex flex-col flex-1 text-gray-800 bg-gray-50 dark:bg-gray-800 dark:text-gray-200">
           <Header />
 
-          <main className="pt-11">
-            <div className="p-2 pt-4">
+          <main className="flex flex-col flex-1 pt-11">
+            <div className="flex flex-col flex-1 pt-4">
               <Component {...pageProps} />
             </div>
           </main>

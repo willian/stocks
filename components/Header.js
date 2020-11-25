@@ -9,9 +9,12 @@ export default function Header() {
 
   return (
     <header className="box-border fixed z-10 flex items-end w-full shadow-sm bg-gradient-to-r from-purple-900 to-purple-600 h-11">
-      <div className="relative flex justify-center flex-1 pt-3 mx-4" style={{ paddingBottom: 14 }}>
+      <div
+        className="relative flex justify-center flex-1 pt-3 pb-3 mx-4"
+        style={{ paddingBottom: 14 }}
+      >
         <Link href="/">
-          <a className="text-lg font-semibold leading-none text-white">Stocks</a>
+          <a className="text-lg font-semibold leading-none text-white">MStocks</a>
         </Link>
 
         {!loading && session && (
