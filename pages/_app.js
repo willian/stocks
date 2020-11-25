@@ -160,7 +160,7 @@ function MyApp({ Component, pageProps }) {
         <div className="box-border relative flex flex-col flex-1 text-gray-800 bg-gray-50 dark:bg-gray-800 dark:text-gray-200">
           <Header />
 
-          <main className="flex flex-col flex-1 pt-11">
+          <main className="flex flex-col flex-1 pt-11 standalone:pt-22">
             <div className="flex flex-col flex-1 pt-4">
               <Component {...pageProps} />
             </div>

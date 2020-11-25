@@ -10,13 +10,3 @@ body {
 @viewport {
   viewport-fit: cover;
 }
-
-@media screen and (display-mode: standalone) {
-  header {
-    height: 88px !important;
-  }
-
-  main {
-    padding-top: 88px !important;
-  }
-}

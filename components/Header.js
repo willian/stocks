@@ -8,7 +8,7 @@ export default function Header() {
   const [session, loading] = useSession()
 
   return (
-    <header className="box-border fixed z-10 flex items-end w-full shadow-sm bg-gradient-to-r from-purple-900 to-purple-600 h-11">
+    <header className="box-border fixed z-10 flex items-end w-full shadow-sm bg-gradient-to-r from-purple-900 to-purple-600 h-11 standalone:h-22">
       <div
         className="relative flex justify-center flex-1 pt-3 pb-3 mx-4"
         style={{ paddingBottom: 14 }}

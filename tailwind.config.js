@@ -11,6 +11,9 @@ module.exports = {
       screens: {
         standalone: { raw: '(display-mode: standalone)' },
       },
+      spacing: {
+        22: '5.5rem',
+      },
     },
   },
   variants: {
