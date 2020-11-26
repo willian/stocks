@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/client'
 import Loader from '../components/Loader'
 import LoginButtons from '../components/LoginButtons'
 import Section from '../components/Section'
+import Holdings from '../components/Holdings'
 
 export default function Home() {
   const [session, loading] = useSession()
@@ -14,9 +15,7 @@ export default function Home() {
   return (
     <Section>
       <Section.Main>
-        <h2 className="text-sm font-semibold text-center text-gray-400 uppercase dark:text-purple-300">
-          My Holdings
-        </h2>
+        <Holdings />
       </Section.Main>
 
       <Section.Footer>
