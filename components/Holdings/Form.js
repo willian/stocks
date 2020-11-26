@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form'
+import { request, gql } from 'graphql-request'
 
 import Button from '../Button'
 import Grid from '../Grid'
@@ -6,8 +7,33 @@ import Grid from '../Grid'
 import AsyncSelect from '../forms/AsyncSelect'
 import FieldControl from '../forms/FieldControl'
 import Label from '../forms/Label'
-import Select from '../forms/Select'
 import TextField from '../forms/TextField'
+
+const fetcher = (query, variables) =>
+  request('https://mechanism-stocks.herokuapp.com/v1/graphql', query, variables)
+
+const fetchCompanyOptions = async (str) => {
+  const query = gql`
+    query filterCompanies($query: String = "") {
+      companies(
+        where: { _or: [{ name: { _ilike: $query } }, { symbol: { _ilike: $query } }] }
+        limit: 100
+        order_by: { symbol: asc }
+      ) {
+        id
+        name
+        industry
+        sector
+        symbol
+      }
+    }
+  `
+  const variables = { query: `%${str}%` }
+
+  const { companies } = await fetcher(query, variables)
+
+  return companies.map((c) => ({ label: `${c.symbol}: ${c.name}`, value: c.id }))
+}
 
 export default function Form() {
   const { handleSubmit, register, setValue } = useForm()
@@ -22,7 +48,13 @@ export default function Form() {
         <Grid cols="6" gap="6">
           <Grid.Col span="6">
             <Label htmlFor="brandId">Company</Label>
-            <AsyncSelect id="brandId" name="brandId" ref={register} setValue={setValue} />
+            <AsyncSelect
+              id="brandId"
+              name="brandId"
+              ref={register}
+              setValue={setValue}
+              fetchOptions={fetchCompanyOptions}
+            />
           </Grid.Col>
 
           <Grid.Col span="6" smSpan="3">
