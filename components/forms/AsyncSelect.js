@@ -114,10 +114,9 @@ const AsyncSelect = forwardRef(
 
       setInputValue(value)
 
-      const options = await fetchOptions(value)
+      fetchOptions(value, setOptions)
 
       setMenuIndex(0)
-      setOptions(options)
     }
 
     const handleClick = (index) => {
