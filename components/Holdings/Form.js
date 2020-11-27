@@ -47,10 +47,10 @@ export default function Form() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid cols="6" gap="6">
           <Grid.Col span="6">
-            <Label htmlFor="brandId">Company</Label>
+            <Label htmlFor="companyId">Company</Label>
             <AsyncSelect
-              id="brandId"
-              name="brandId"
+              id="companyId"
+              name="companyId"
               ref={register}
               setValue={setValue}
               fetchOptions={fetchCompanyOptions}
@@ -62,8 +62,8 @@ export default function Form() {
             <FieldControl content="$">
               <TextField
                 className="rounded-none rounded-r-md"
-                id="shares"
-                name="shares"
+                id="price"
+                name="price"
                 ref={register}
               />
             </FieldControl>
