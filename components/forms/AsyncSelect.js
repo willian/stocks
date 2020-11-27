@@ -9,7 +9,7 @@ import CheckIcon from '../icons/CheckIcon'
 import TextField from './TextField'
 
 const AsyncSelect = forwardRef(
-  ({ className = '', id, name, setValue, defaultValue, fetchOptions }, ref) => {
+  ({ className = '', id, name, onChange, defaultValue, fetchOptions }, ref) => {
     const [options, setOptions] = useState([])
     const [selectedOption, setSelectedOption] = useState(
       options.find((o) => o.value === defaultValue) || {},
@@ -82,7 +82,7 @@ const AsyncSelect = forwardRef(
 
           setSelectedOption(option)
           setInputValue(option.label)
-          setValue(name, option.value)
+          onChange(name, option.value)
 
           setOpen(false)
 
@@ -124,7 +124,7 @@ const AsyncSelect = forwardRef(
       const option = options[index]
 
       setSelectedOption(option)
-      setValue(name, option.value)
+      onChange(name, option.value)
       setInputValue(option.label)
       setMenuIndex(index)
       setOpen(false)
