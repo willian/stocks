@@ -1,9 +1,16 @@
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { Provider } from 'next-auth/client'
 
+import 'react-pwa-to-homescreen/dist/index.css'
 import '../styles.css'
 
 import Header from '../components/Header'
+
+const ReactPWAToHomeScreen = dynamic(
+  () => import('react-pwa-to-homescreen').then((mod) => mod.ReactPWAToHomeScreen),
+  { ssr: false },
+)
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -155,6 +162,10 @@ function MyApp({ Component, pageProps }) {
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </Head>
+
+      <div>
+        <ReactPWAToHomeScreen />
+      </div>
 
       <div
         className="flex flex-col min-h-screen font-sans text-base antialiased select-none bg-cool-gray-200"

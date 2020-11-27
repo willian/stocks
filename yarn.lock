@@ -5622,6 +5622,11 @@ react-loader-spinner@^3.1.14:
     babel-runtime "^6.26.0"
     prop-types "^15.7.2"
 
+react-pwa-to-homescreen@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-pwa-to-homescreen/-/react-pwa-to-homescreen-1.1.0.tgz#6d024fa9af78779cff51f59a4e8bbdeb1b7aa988"
+  integrity sha512-Yj6rv/IGllZGpeVGogbVVFxEsEpDq/I6F0ciE7quGhm83w3tKM+vBCgh3H9X1ICIrPJIvJ1HieM9FHAeBSkp1g==
+
 react-refresh@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
