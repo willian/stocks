@@ -163,9 +163,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </Head>
 
-      <div>
-        <ReactPWAToHomeScreen />
-      </div>
+      <div className="flex content-center justify-center"></div>
 
       <div
         className="flex flex-col min-h-screen font-sans text-base antialiased select-none bg-cool-gray-200"
@@ -180,6 +178,7 @@ function MyApp({ Component, pageProps }) {
             </div>
           </main>
         </div>
+        <ReactPWAToHomeScreen />
       </div>
     </Provider>
   )

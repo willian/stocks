@@ -10,6 +10,8 @@
   "dependencies": {
     "@headlessui/react": "^0.2.0",
     "autoprefixer": "^10.0.2",
+    "cents-to-currency": "^1.0.0",
+    "dollars-to-cents": "^1.0.3",
     "graphql": "^15.4.0",
     "graphql-request": "^3.3.0",
     "lodash.debounce": "^4.0.8",

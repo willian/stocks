@@ -9,12 +9,8 @@ import TextField from '../forms/TextField'
 
 import AsyncCompanySelect from './AsyncCompanySelect'
 
-export default function Form() {
+export default function Form({ onSubmit }) {
   const { handleSubmit, register, setValue } = useForm()
-
-  const onSubmit = (data) => {
-    console.log('data', data)
-  }
 
   return (
     <div className="w-11/12 p-3 mx-auto mt-4 overflow-hidden bg-gray-100 rounded-md shadow sm:w-8/12 sm:p-6">

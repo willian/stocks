@@ -2,6 +2,12 @@ import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
 const options = {
+  callbacks: {
+    session: async (session, user) => {
+      session.user.id = user.id
+      return Promise.resolve(session)
+    },
+  },
   debug: process.env.NODE_ENV === 'development',
   database: {
     type: process.env.DB_TYPE,
