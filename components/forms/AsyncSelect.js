@@ -1,9 +1,11 @@
+// import Loader from 'react-loader-spinner'
 import { Transition } from '@headlessui/react'
-import { forwardRef, useRef, useState } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
 
 import useOuterClick from '../../hooks/useOuterClick'
 import { Keys } from '../../utils/keyboard'
 
+import Loader from '../Loader'
 import CheckIcon from '../icons/CheckIcon'
 
 import TextField from './TextField'
@@ -14,14 +16,18 @@ const AsyncSelect = forwardRef(
     const [selectedOption, setSelectedOption] = useState(
       options.find((o) => o.value === defaultValue) || {},
     )
-    const [inputValue, setInputValue] = useState(selectedOption.label || '')
     const [menuIndex, setMenuIndex] = useState(-1)
     const [open, setOpen] = useState(false)
+    const [loadingOptions, setLoadingOptions] = useState(false)
     const inputRef = useRef()
     const ulRef = useRef()
     const wrapperRef = useOuterClick(() => setOpen(false))
 
     const isSelected = (option) => option.value === selectedOption.value
+
+    useEffect(() => {
+      setLoadingOptions(false)
+    }, [options])
 
     const handleKeyDown = (event) => {
       switch (event.key) {
@@ -81,7 +87,7 @@ const AsyncSelect = forwardRef(
           const option = options[menuIndex]
 
           setSelectedOption(option)
-          setInputValue(option.label)
+          inputRef.current.value = option.label
           onChange(name, option.value)
 
           setOpen(false)
@@ -112,8 +118,7 @@ const AsyncSelect = forwardRef(
     const handleChange = async (event) => {
       const { value } = event.target
 
-      setInputValue(value)
-
+      setLoadingOptions(true)
       fetchOptions(value, setOptions)
 
       setMenuIndex(0)
@@ -124,7 +129,7 @@ const AsyncSelect = forwardRef(
 
       setSelectedOption(option)
       onChange(name, option.value)
-      setInputValue(option.label)
+      inputRef.current.value = option.label
       setMenuIndex(index)
       setOpen(false)
 
@@ -150,8 +155,12 @@ const AsyncSelect = forwardRef(
           onKeyDown={handleKeyDown}
           placeholder="Type a name or symbol"
           ref={inputRef}
-          value={inputValue}
         />
+        {loadingOptions && (
+          <div className="absolute top-0 right-9">
+            <Loader className="pt-0" />
+          </div>
+        )}
 
         <input id={id} name={name} ref={ref} type="hidden" defaultValue={selectedOption.value} />
 
@@ -162,9 +171,9 @@ const AsyncSelect = forwardRef(
           leaveTo="opacity-0"
           show={open}
         >
-          {options.length === 0 ? (
+          {loadingOptions || options.length === 0 ? (
             <div className="relative w-full py-2 pl-8 pr-4 text-gray-400 cursor-default select-none">
-              No options available
+              {loadingOptions ? 'Loading options...' : 'No options available'}
             </div>
           ) : (
             <ul

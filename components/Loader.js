@@ -1,6 +1,6 @@
 import ReactLoaderSpinner from 'react-loader-spinner'
 
-export default function Loader({ big }) {
+export default function Loader({ big, className: classNameProp }) {
   let classNames = 'flex items-center w-24 pt-24 mx-auto'
   if (big) {
     classNames += ' w-24 pt-24'
@@ -13,7 +13,7 @@ export default function Loader({ big }) {
   const color = mediaQuery && mediaQuery.matches ? '#A78BFA' : '#EDE9FE'
 
   return (
-    <div className={classNames}>
+    <div className={classNameProp || classNames}>
       <ReactLoaderSpinner type="ThreeDots" color={color} height={size} width={size} />
     </div>
   )
