@@ -17,7 +17,18 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      accessibility: ['responsive', 'focus-within', 'focus'],
+      gap: ['responsive'],
+      gridColumn: ['responsive'],
+      gridColumnEnd: ['responsive'],
+      gridColumnStart: ['responsive'],
+      gridRow: ['responsive'],
+      gridRowEnd: ['responsive'],
+      gridRowStart: ['responsive'],
+      gridTemplateColumns: ['responsive'],
+      gridTemplateRows: ['responsive'],
+    },
   },
   plugins: [],
 }
