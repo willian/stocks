@@ -6,7 +6,7 @@
 ## Development Setup
 
 1. Clone this repository (`git clone git@github.com:willian/stocks.git`)
-2. Create a file `.env.local` in the root of the repository you just clonned and the the following development keys:
+2. Create a file `.env.local` in the root of the repository you just cloned and the following development keys:
 
 ```
 SITE=http://localhost:3000
@@ -34,3 +34,5 @@ DB_DATABASE=dbsgtmdqlce86t
 ```
 3. Install dependencies: `yarn install`
 4. Boot the development server: `yarn dev`
+
+_* Ideally, these credentials wouldn't be here and would be shared internally with the team_
